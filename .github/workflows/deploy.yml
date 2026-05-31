@@ -1,0 +1,10 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  note:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Connect this workflow to your hosting provider after choosing Vercel/Netlify/Render/Railway/Azure."
