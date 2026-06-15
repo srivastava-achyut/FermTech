@@ -16,3 +16,12 @@ export async function users(_req, res) {
   const records = await User.find().select("-passwordHash").sort("-createdAt");
   res.json({ users: records });
 }
+export async function pendingListings(_req, res) {
+  const listings = await Listing.find({
+    status: "pending"
+  })
+    .populate("farmer", "name email")
+    .sort("-createdAt");
+
+  res.json({ listings });
+}

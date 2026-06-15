@@ -23,9 +23,27 @@ export default function Navbar() {
           {user ? (
             <>
               <NavLink to={base}>Dashboard</NavLink>
-              {user.role === "farmer" && <NavLink to="/farmer/diagnose">Diagnose</NavLink>}
-              {user.role === "buyer" && <NavLink to="/buyer/browse">Browse</NavLink>}
-              {user.role === "admin" && <NavLink to="/admin/listings">Approvals</NavLink>}
+             {user.role === "farmer" && (
+  <>
+    <NavLink to="/farmer/diagnose">Diagnose</NavLink>
+    <NavLink to="/farmer/history">History</NavLink>
+    <NavLink to="/farmer/listings">Listings</NavLink>
+  </>
+)}
+
+{user.role === "buyer" && (
+  <>
+    <NavLink to="/buyer/browse">Browse</NavLink>
+    <NavLink to="/buyer/orders">Orders</NavLink>
+  </>
+)}
+
+{user.role === "admin" && (
+  <>
+    <NavLink to="/admin/listings">Approvals</NavLink>
+    <NavLink to="/admin/users">Users</NavLink>
+  </>
+)}
               <button className="btn ghost" onClick={logout} title="Sign out">
                 <LogOut size={16} /> Logout
               </button>

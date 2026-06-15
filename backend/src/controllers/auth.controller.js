@@ -8,7 +8,7 @@ export const registerSchema = z.object({
     phone: z.string().min(10),
     email: z.string().email().optional().or(z.literal("")),
     password: z.string().min(6),
-    role: z.enum(["farmer", "buyer", "admin"]).default("farmer"),
+    role: z.enum(["farmer", "buyer"]).default("farmer"),
     language: z.string().default("hi")
   })
 });
@@ -27,7 +27,11 @@ export async function register(req, res) {
   if (exists) {
     return res.status(409).json({ message: "Phone number is already registered" });
   }
-
+if (data.role === "admin") {
+  return res.status(403).json({
+    message: "Admin registration is disabled"
+  });
+}
   const user = await User.create({
     ...data,
     passwordHash: await hashPassword(data.password)

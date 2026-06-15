@@ -1,0 +1,33 @@
+node_modules/
+dist/
+build/
+
+.env
+.env.*
+!.env.example
+
+coverage/
+uploads/
+
+*.log
+.DS_Store
+Thumbs.db
+
+# ML datasets
+ml-models/**/raw-dataset/
+ml-models/**/dataset/
+ml-models/**/Potato/
+
+# Virtual environments
+ml-models/**/.venv/
+
+# Trained models
+ml-models/**/*.keras
+ml-models/**/*.h5
+ml-models/**/*.pt
+ml-models/**/*.onnx
+__pycache__/
+*.pyc
+# Local frontend env
+frontend/.env.local
+.vscode/
