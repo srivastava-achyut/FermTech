@@ -9,6 +9,7 @@ from pydantic import BaseModel
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 
+
 app = FastAPI(title="FermTech AI Service")
 
 app.add_middleware(
@@ -62,6 +63,9 @@ async def predict(file: UploadFile = File(...)):
     }
 
 
+
+
+
 @app.post("/predict-url")
 async def predict_url(data: ImageUrlRequest):
 
@@ -86,7 +90,7 @@ async def predict_url(data: ImageUrlRequest):
 
     return {
         "diagnosis": disease,
-        "confidence": round(confidence * 100, 2),
+        "confidence": round(confidence, 2),
         "severity": "medium",
         "isMock": False,
         "treatment": [
