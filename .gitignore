@@ -22,7 +22,7 @@ ml-models/**/Potato/
 ml-models/**/.venv/
 
 # Trained models
-ml-models/**/*.keras
+
 ml-models/**/*.h5
 ml-models/**/*.pt
 ml-models/**/*.onnx
